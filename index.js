@@ -71,7 +71,7 @@ function drawBall() {
 }
 
 function moveUser(e) {
-  switch (e.key) {
+  switch (e) {
     case "ArrowLeft":
       if (currentPosition[0] > 0) {
         currentPosition[0] -= 10;
@@ -100,12 +100,12 @@ function moveBall() {
   checkBallCollisions();
 }
 function startGame() {
-  timerId = setInterval(moveBall, 30);
-  document.addEventListener("keydown", moveUser);
+  timerId = setInterval(moveBall, 50);
+  // document.addEventListener("keydown", moveUser);
 }
 function pauseGame() {
   clearInterval(timerId);
-  document.removeEventListener("keydown", moveUser);
+  // document.removeEventListener("keydown", moveUser);
 }
 
 function checkBallCollisions() {
@@ -126,7 +126,7 @@ function checkBallCollisions() {
       if (blocks.length === 0) {
         scoreDisplay.innerHTML = "you win";
         clearInterval(timerId);
-        document.removeEventListener("keydown", moveUser);
+        // document.removeEventListener("keydown", moveUser);
       }
     }
   }
@@ -152,7 +152,7 @@ function checkBallCollisions() {
   if (ballCurrentPosition[1] <= 0) {
     clearInterval(timerId);
     scoreDisplay.innerHTML = "you lose";
-    document.removeEventListener("keydown", moveUser);
+    // document.removeEventListener("keydown", moveUser);
   }
 }
 
